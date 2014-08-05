@@ -11,6 +11,14 @@ namespace TsFileConcatenator
     {
         static void Main(string[] args)
         {
+            if (args[0].Contains("?")) { 
+                PrintHelp();
+                
+                Console.WriteLine("Press any key to exit.");
+                Console.ReadKey();
+                return;
+            }
+
             var currentDirectory = Environment.CurrentDirectory;
             Console.WriteLine("Current Directory: {0}", currentDirectory);
             var files = Directory.GetFiles(currentDirectory, "*.ts");
@@ -47,6 +55,13 @@ namespace TsFileConcatenator
                         input.CopyTo(output);
                 }
             }
+        }
+
+        static void PrintHelp()
+        {
+            Console.WriteLine("Concatenates all ts in the Current Directory.");
+            Console.WriteLine("Creates a new file called combined.ts");
+
         }
     }
 }
