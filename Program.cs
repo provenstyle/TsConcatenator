@@ -11,9 +11,10 @@ namespace TsFileConcatenator
     {
         static void Main(string[] args)
         {
-            if (args[0].Contains("?")) { 
+            if (args.Any() &&
+                args[0].Contains("?")) 
+            { 
                 PrintHelp();
-                
                 Console.WriteLine("Press any key to exit.");
                 Console.ReadKey();
                 return;
